@@ -1,6 +1,7 @@
 package main
 
 import (
+	"golang_api/db"
 	"github.com/gin-gonic/gin"
 
 	_ "github.com/mattn/go-sqlite3"
@@ -11,7 +12,10 @@ func main() {
 	router.LoadHTMLGlob("html/*.html")
 
 	router.GET("/", func(ctx *gin.Context) {
-		ctx.HTML(200, "index.html", gin.H{})
+		todos := db.dbGetAll()
+		ctx.HTML(200, "index.html",gin.H{
+			"tados": todos
+		})
 	})
 
 	data := "in data"
