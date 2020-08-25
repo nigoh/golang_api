@@ -12,7 +12,7 @@ import (
 
 func main() {
 	router := gin.Default()
-	router.LoadHTMLGlob("html/*.html")
+	router.LoadHTMLGlob("templates/*.html")
 
 	db.Init()
 
@@ -20,7 +20,7 @@ func main() {
 	router.GET("/", func(ctx *gin.Context) {
 		todos := db.GetAll()
 		ctx.HTML(200, "index.html", gin.H{
-			"tados": todos,
+			"todos": todos,
 		})
 	})
 
@@ -41,7 +41,7 @@ func main() {
 		}
 		todo := db.GetOne(id)
 		ctx.HTML(200, "detail.html", gin.H{
-			"tado": todo,
+			"todo": todo,
 		})
 	})
 
@@ -67,7 +67,7 @@ func main() {
 		}
 		todo := db.GetOne(id)
 		ctx.HTML(200, "delete.html", gin.H{
-			"tado": todo,
+			"todo": todo,
 		})
 	})
 

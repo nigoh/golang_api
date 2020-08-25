@@ -19,13 +19,15 @@
         <p><input type="submit" value="Send"></p>
     </form>
     
+    <h1>{{.testdata}}</h1>
+
     <ul>
         {{ range .todos }}
             <li>内容：{{ .Text }}、状態：{{ .Status }}
                 <label><a href="/detail/{{.ID}}">編集</a></label>
                 <label><a href="/delete_check/{{.ID}}">削除</a></label>
             </li>
-        {{end}}
+        {{ end }}
     </ul>
 </body>
 </html>
