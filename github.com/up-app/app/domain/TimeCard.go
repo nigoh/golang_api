@@ -6,3 +6,4 @@ type TimeCard struct {
 	Month     uint
 	WorkPlace string
 }
+
